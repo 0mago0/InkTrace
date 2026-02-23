@@ -54,11 +54,8 @@ struct DrawingCanvasCardView: View {
         }
     }
 
-    /// 根據字符選擇字體：英文/拉丁用 Inter，其餘（中文等）用 Noto Sans TC
+    /// 根據字符動態選擇最佳字體（支援罕見 Unicode 字元的回退機制）
     private func previewFont(for character: String) -> Font {
-        let isLatin = character.unicodeScalars.allSatisfy { $0.value < 0x0250 }
-        return isLatin
-            ? .custom("Inter18pt-Regular", size: 220)
-            : .custom("NotoSansTC-Regular", size: 220)
+        return FontHelper.bestFont(for: character, size: 220)
     }
 }

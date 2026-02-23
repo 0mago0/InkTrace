@@ -98,7 +98,7 @@ struct PromptCarouselView: View {
             : (completedCharacters.contains(index) ? .green : .primary)
 
         return Text(questionBank[index])
-            .font(.system(size: 80, weight: .bold))
+            .font(FontHelper.bestFont(for: questionBank[index], size: 80, weight: .bold))
             .foregroundColor(color)
             .scaleEffect(scale)
             .opacity(opacity)
