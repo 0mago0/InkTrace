@@ -81,8 +81,10 @@ class CharacterLoader: ObservableObject {
                     return
                 }
                 
-                // 移除換行符號，保留所有其他字符
-                let cleanedText = text.replacingOccurrences(of: "\\s+", with: "", options: .regularExpression)
+                // NFC 正規化後移除換行符號，保留所有其他字符
+                let cleanedText = text
+                    .precomposedStringWithCanonicalMapping
+                    .replacingOccurrences(of: "\\s+", with: "", options: .regularExpression)
                 
                 if cleanedText.isEmpty {
                     self?.errorMessage = "檔案內容為空"

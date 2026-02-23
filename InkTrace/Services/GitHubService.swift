@@ -294,7 +294,8 @@ enum FileNameUtility {
     }
 
     static func unicodeCodepointFileStem(from text: String) -> String {
-        let codepoints = text.unicodeScalars.map { scalar -> String in
+        let normalized = text.precomposedStringWithCanonicalMapping
+        let codepoints = normalized.unicodeScalars.map { scalar -> String in
             let hex = String(scalar.value, radix: 16).uppercased()
             let padded = String(repeating: "0", count: max(0, 4 - hex.count)) + hex
             return "U+\(padded)"
