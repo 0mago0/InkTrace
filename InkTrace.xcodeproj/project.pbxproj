@@ -34,7 +34,7 @@
 		AA00000130000001000000C7 /* DrawingSubmissionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000130000001000000BD /* DrawingSubmissionService.swift */; };
 		AA00000130000001000000C8 /* DrawingUploadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000130000001000000BE /* DrawingUploadTask.swift */; };
 		DD172BB12F4C3F940060DA90 /* NotoSansTC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD172BB02F4C3F940060DA90 /* NotoSansTC-Regular.ttf */; };
-		DD172BB32F4C3FD80060DA90 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD172BB22F4C3FD80060DA90 /* Inter-Regular.ttf */; };
+		DD172BB32F4C3FD80060DA90 /* Inter18pt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD172BB22F4C3FD80060DA90 /* Inter18pt-Regular.ttf */; };
 		DD816F4E2F20B7740031DBF1 /* CharacterLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD816F4D2F20B7730031DBF1 /* CharacterLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,7 +86,7 @@
 		AA00000130000001000000BD /* DrawingSubmissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingSubmissionService.swift; sourceTree = "<group>"; };
 		AA00000130000001000000BE /* DrawingUploadTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingUploadTask.swift; sourceTree = "<group>"; };
 		DD172BB02F4C3F940060DA90 /* NotoSansTC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansTC-Regular.ttf"; sourceTree = "<group>"; };
-		DD172BB22F4C3FD80060DA90 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		DD172BB22F4C3FD80060DA90 /* Inter18pt-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter18pt-Regular.ttf"; sourceTree = "<group>"; };
 		DD816F4D2F20B7730031DBF1 /* CharacterLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,7 +148,7 @@
 				377AD2D02E6AC47D00666E89 /* Assets.xcassets */,
 				377AD2D22E6AC47D00666E89 /* Preview Content */,
 				DD172BB02F4C3F940060DA90 /* NotoSansTC-Regular.ttf */,
-				DD172BB22F4C3FD80060DA90 /* Inter-Regular.ttf */,
+				DD172BB22F4C3FD80060DA90 /* Inter18pt-Regular.ttf */,
 			);
 			path = InkTrace;
 			sourceTree = "<group>";
@@ -347,7 +347,7 @@
 			files = (
 				377AD2D42E6AC47D00666E89 /* Preview Assets.xcassets in Resources */,
 				DD172BB12F4C3F940060DA90 /* NotoSansTC-Regular.ttf in Resources */,
-				DD172BB32F4C3FD80060DA90 /* Inter-Regular.ttf in Resources */,
+				DD172BB32F4C3FD80060DA90 /* Inter18pt-Regular.ttf in Resources */,
 				377AD2D12E6AC47D00666E89 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -557,7 +557,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIAppFonts = (
-					"Inter-Regular.ttf",
+					"Inter18pt-Regular.ttf",
 					"NotoSansTC-Regular.ttf",
 				);
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -591,7 +591,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIAppFonts = (
-					"Inter-Regular.ttf",
+					"Inter18pt-Regular.ttf",
 					"NotoSansTC-Regular.ttf",
 				);
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

@@ -58,7 +58,7 @@ struct DrawingCanvasCardView: View {
     private func previewFont(for character: String) -> Font {
         let isLatin = character.unicodeScalars.allSatisfy { $0.value < 0x0250 }
         return isLatin
-            ? .custom("Inter-Regular", size: 220)
+            ? .custom("Inter18pt-Regular", size: 220)
             : .custom("NotoSansTC-Regular", size: 220)
     }
 }
