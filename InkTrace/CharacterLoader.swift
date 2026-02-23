@@ -108,13 +108,21 @@ class CharacterLoader: ObservableObject {
         UserDefaults.standard.removeObject(forKey: CharacterSourceKeys.cachedTextKey)
     }
     
-    /// 將載入的文字轉換為字元陣列
+    /// 將載入的文字轉換為字元陣列，過濾 emoji 字符
     var loadedCharacters: [String] {
-        return loadedText.map { String($0) }
+        return loadedText.filter { !$0.isEmoji }.map { String($0) }
     }
     
     /// 檢查是否有自訂字庫
     var hasCustomCharacters: Bool {
         return !savedURL.isEmpty && !loadedText.isEmpty
+    }
+}
+
+// MARK: - Emoji 判斷
+private extension Character {
+    /// 若字符本身具有 emoji 預設呈現（isEmojiPresentation）則視為 emoji
+    var isEmoji: Bool {
+        unicodeScalars.contains { $0.properties.isEmojiPresentation }
     }
 }

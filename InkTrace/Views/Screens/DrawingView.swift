@@ -23,6 +23,7 @@ struct DrawingView: View {
     @AppStorage(GHKeys.branch) private var ghBranch: String = "main"
     @AppStorage(GHKeys.prefix) private var ghPrefix: String = "handwriting"
     @AppStorage("HideInstructionsOnStartup") private var hideInstructionsOnStartup: Bool = false
+    @AppStorage("ShowPreviewCharacter") private var showPreviewCharacter: Bool = true
     @State private var showingSettings = false
     @State private var hasScrolledToBottom = false
     @State private var toastMessage: String? = nil
@@ -49,6 +50,7 @@ struct DrawingView: View {
     }
 
     var previewCharacter: String? {
+        guard showPreviewCharacter else { return nil }
         guard !questionBank.isEmpty,
               currentIndex >= 0,
               currentIndex < questionBank.count else { return nil }
@@ -71,6 +73,7 @@ struct DrawingView: View {
 
                 VStack(spacing: 0) {
                     DrawingTopBarView(
+                        showPreviewCharacter: $showPreviewCharacter,
                         onSettingsTap: { showingSettings = true },
                         onHelpTap: {
                             hasScrolledToBottom = false

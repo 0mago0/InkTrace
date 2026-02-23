@@ -6,6 +6,7 @@
 import SwiftUI
 
 struct DrawingTopBarView: View {
+    @Binding var showPreviewCharacter: Bool
     let onSettingsTap: () -> Void
     let onHelpTap: () -> Void
     let onProgressTap: () -> Void
@@ -16,6 +17,10 @@ struct DrawingTopBarView: View {
 
             Spacer()
 
+            CircleButton(
+                icon: showPreviewCharacter ? "eye.fill" : "eye.slash.fill",
+                action: { showPreviewCharacter.toggle() }
+            )
             CircleButton(icon: "questionmark.circle", action: onHelpTap)
             CircleButton(icon: "chart.bar.xaxis", action: onProgressTap)
         }
