@@ -108,9 +108,15 @@ class CharacterLoader: ObservableObject {
         UserDefaults.standard.removeObject(forKey: CharacterSourceKeys.cachedTextKey)
     }
     
-    /// 將載入的文字轉換為字元陣列，過濾 emoji 字符
+    /// 將載入的文字轉換為字元陣列，過濾掉彩色 emoji，並對符號類字符加上文字變體選擇器
     var loadedCharacters: [String] {
-        return loadedText.filter { !$0.isEmoji }.map { String($0) }
+        return loadedText
+            .filter { !$0.isColorEmoji }
+            .map { char in
+                // 具 emoji 屬性但預設以文字呈現的符號（如 ⬍），
+                // 加上 U+FE0E（文字變體選擇器）強制以文字樣式顯示
+                char.isEmojiSymbol ? String(char) + "\u{FE0E}" : String(char)
+            }
     }
     
     /// 檢查是否有自訂字庫
@@ -121,8 +127,16 @@ class CharacterLoader: ObservableObject {
 
 // MARK: - Emoji 判斷
 private extension Character {
-    /// 若字符本身具有 emoji 預設呈現（isEmojiPresentation）則視為 emoji
-    var isEmoji: Bool {
+    /// 真正的彩色 emoji：預設以 emoji 圖形呈現（如 😀 🎉）→ 過濾掉
+    var isColorEmoji: Bool {
         unicodeScalars.contains { $0.properties.isEmojiPresentation }
+    }
+
+    /// 具 emoji 屬性但預設以文字呈現的符號（如 ⬍ ↔ ←）
+    /// → 保留，但顯示時加 U+FE0E 強制文字樣式
+    var isEmojiSymbol: Bool {
+        unicodeScalars.contains {
+            $0.properties.isEmoji && !$0.properties.isEmojiPresentation && $0.value > 0x00FF
+        }
     }
 }

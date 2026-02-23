@@ -41,7 +41,7 @@ struct DrawingCanvasCardView: View {
         ZStack {
             if let previewCharacter {
                 Text(previewCharacter)
-                    .font(.system(size: 220, weight: .regular))
+                    .font(previewFont(for: previewCharacter))
                     .foregroundColor(.black.opacity(0.08))
                     .minimumScaleFactor(0.1)
                     .lineLimit(1)
@@ -52,5 +52,13 @@ struct DrawingCanvasCardView: View {
                 .stroke(Color(UIColor.separator), lineWidth: 1)
             Crosshair(size: CGSize(width: 300, height: 300), lineColor: Color(UIColor.separator), lineWidth: 1, dash: [4, 4])
         }
+    }
+
+    /// 根據字符選擇字體：英文/拉丁用 Inter，其餘（中文等）用 Noto Sans TC
+    private func previewFont(for character: String) -> Font {
+        let isLatin = character.unicodeScalars.allSatisfy { $0.value < 0x0250 }
+        return isLatin
+            ? .custom("Inter-Regular", size: 220)
+            : .custom("NotoSansTC-Regular", size: 220)
     }
 }
