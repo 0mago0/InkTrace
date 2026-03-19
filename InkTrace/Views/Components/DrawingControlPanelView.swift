@@ -32,7 +32,7 @@ struct DrawingControlPanelView: View {
 
             HStack(spacing: 12) {
                 HStack(spacing: 0) {
-                    Button(action: { canvasScalePercent = max(50, canvasScalePercent - 10) }) {
+                    Button(action: { canvasScalePercent = max(10, canvasScalePercent - 10) }) {
                         Image(systemName: "minus")
                             .frame(width: 32, height: 32)
                     }

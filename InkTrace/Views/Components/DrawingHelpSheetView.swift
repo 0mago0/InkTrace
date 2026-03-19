@@ -117,7 +117,7 @@ struct DrawingHelpSheetView: View {
                             Text("工具")
                                 .font(.headline)
                         }
-                        Text("下方控制列可調整筆畫粗細 (1-20) 和畫布縮放比例 (50-100%)。")
+                        Text("下方控制列可調整筆畫粗細 (1-20) 和畫布縮放比例 (10-100%)。")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
