@@ -1,5 +1,5 @@
 # 漢字手寫練習 App
-
+demo video: https://youtu.be/gDXxQJUykfE?si=i_FzhirXSUP7ZCjA
 一款 iOS 手寫練習應用程式，讓使用者練習書寫漢字，並可將手寫結果上傳至 GitHub 儲存。
 
 ## ✨ 功能特色
